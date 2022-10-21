@@ -14,10 +14,10 @@ def test_read_main():
 def test_predict():
      response = client.post(
         "/flashes",
-        json={"vis": "/Users/moukthikamanapati/Desktop/BigData7245/WAF_ML_Tutorial_Part1/vis.png",
-    "vil": "/Users/moukthikamanapati/Desktop/BigData7245/WAF_ML_Tutorial_Part1/vil.png",
-    "ir069": "/Users/moukthikamanapati/Desktop/BigData7245/WAF_ML_Tutorial_Part1/ir069.png",
-    "ir107": "/Users/moukthikamanapati/Desktop/BigData7245/WAF_ML_Tutorial_Part1/ir107.png" 
+        json={"vis": "/Users/moukthikamanapati/Desktop/BigData7245/DAMG7245-Assignment2/images/1/vis.png",
+    "vil": "/Users/moukthikamanapati/Desktop/BigData7245/DAMG7245-Assignment2/images/1/vil.png",
+    "ir069": "/Users/moukthikamanapati/Desktop/BigData7245/DAMG7245-Assignment2/images/1/ir069.png",
+    "ir107": "/Users/moukthikamanapati/Desktop/BigData7245/DAMG7245-Assignment2/images/1/ir107.png" 
     }  )
      assert response.status_code == 200
      assert response.json() == {
@@ -45,5 +45,5 @@ def test_features():
 
 
 def test_imageprocessing():
-     vis="/Users/moukthikamanapati/Desktop/BigData7245/WAF_ML_Tutorial_Part1/vis.png" 
+     vis="/Users/moukthikamanapati/Desktop/BigData7245/DAMG7245-Assignment2/images/1/vis.png" 
      assert app1.imagepreprocessing(vis).shape == (1,9)
