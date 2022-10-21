@@ -65,5 +65,4 @@ import pickle
 model = model.fit(X_train,y_train)
 pickle.dump(model, open('model.pkl','wb'))
 
-from gewitter_functions import get_mae,get_rmse,get_bias,get_r2
 
