@@ -8,7 +8,7 @@ app = FastAPI()
 
 # event_id = input('enter the event_id : ')
 def filename_eventid(eventtype,eventid):
-    df1=pd.read_csv('CATALOG.csv',low_memory=False)
+    df1=pd.read_csv('/Users/adh.arash/Documents/Bigdata/DAMG7245/DAMG7245-Assignment2/datasets/sevir/CATALOG.csv',low_memory=False)
     regex=eventtype+""+eventid
     # print(regex)
     df1=df1[df1.id.str.startswith(regex)]
@@ -25,7 +25,7 @@ def getfiles(event_id):
 ######################################################################
 
 def number_of_events(event_name):
-  df_VIS = pd.read_csv('/Users/adh.arash/Documents/Bigdata/sevir/VIS_stats_master.csv', low_memory=False)
+  df_VIS = pd.read_csv('/Users/adh.arash/Documents/Bigdata/DAMG7245/DAMG7245-Assignment2/datasets/sevir/VIS_stats_master.csv', low_memory=False)
   counts=df_VIS['event'].value_counts()[event_name]
   return counts.item()
 
@@ -38,7 +38,7 @@ def eventcount(event_name):
 ##########################################################################
 
 def get_description(column):
-    df_VIS = pd.read_csv('/Users/adh.arash/Documents/Bigdata/sevir/VIS_stats_master.csv', low_memory=False)
+    df_VIS = pd.read_csv('/Users/adh.arash/Documents/Bigdata/DAMG7245/DAMG7245-Assignment2/datasets/sevir/VIS_stats_master.csv', low_memory=False)
     return df_VIS[column].describe()
 
 #third function
@@ -58,7 +58,7 @@ def convert(date_time):
 #fourth function
 @app.get("/count/{Starting_Date}/{Ending_Date}")
 def count_of_storms(Starting_Date,Ending_Date):
-  df1=pd.read_csv('CATALOG.csv',low_memory=False)
+  df1=pd.read_csv('/Users/adh.arash/Documents/Bigdata/DAMG7245/DAMG7245-Assignment2/datasets/sevir/CATALOG.csv',low_memory=False)
   df2=df1.loc[df1['time_utc'] > Starting_Date]
   df3=df1.loc[df1['time_utc'] < Ending_Date]
   counts1=df2['event_type'].value_counts()
@@ -75,7 +75,7 @@ def getlocation(event_type,x,y):
 #fetch coords by event type
   x=float(x)
   y=float(y)
-  df_cat = pd.read_csv('CATALOG.csv', low_memory=False)
+  df_cat = pd.read_csv('/Users/adh.arash/Documents/Bigdata/DAMG7245/DAMG7245-Assignment2/datasets/sevir/CATALOG.csv', low_memory=False)
 # Select Rows Based on event type
   values=[event_type]
   filter1 = df_cat.loc[df_cat["event_type"].isin(values)]
