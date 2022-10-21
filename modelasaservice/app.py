@@ -42,7 +42,7 @@ import sys
 sys.path.insert(1, '../scripts/')
 
 from aux_functions import load_n_combine_df
-(X_train,y_train),(X_validate,y_validate),(X_test,y_test) = load_n_combine_df(path_to_data='datasets/sevir/',features_to_keep=np.arange(0,36,1),class_labels=False,dropzeros=True)
+(X_train,y_train),(X_validate,y_validate),(X_test,y_test) = load_n_combine_df(path_to_data='../datasets/sevir/',features_to_keep=np.arange(0,36,1),class_labels=False,dropzeros=True)
 
   #create scaling object 
 scaler = StandardScaler()
